@@ -41,7 +41,16 @@
 # |        я        |                      ya                     |
 # +-----------------+---------------------------------------------+
 
-if [ ! $* ]
+TEXT_ORIGINAL=$*
+
+declare -A COLOR
+COLOR=(
+    [CLEAR]="\033[0m"
+    [RED]="\033[0;31m"
+    [GREEN]="\033[0;32m"
+)
+
+if [ ! ${TEXT_ORIGINAL} ]
 then
 
     echo "Информация: Яндекс транслит для генерации SEO ссылок"
@@ -49,7 +58,10 @@ then
 
 else
 
-    echo $* | sed -f translit.sed
+    TEXT_TRANSLIT=`echo ${TEXT_ORIGINAL} | sed -f translit.sed`
+
+    echo -e "${COLOR[GREEN]}Оригинальный текст: ${COLOR[CLEAR]}${TEXT_ORIGINAL}"
+    echo -e "${COLOR[RED]}Транслит: ${COLOR[CLEAR]}${TEXT_TRANSLIT}"
 
 fi
 
