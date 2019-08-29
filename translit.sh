@@ -50,7 +50,7 @@ COLOR=(
     [GREEN]="\033[0;32m"
 )
 
-if [ ! ${TEXT_ORIGINAL} ]
+if [[ ! ${TEXT_ORIGINAL} ]]
 then
 
     echo "Информация: Яндекс транслит для генерации SEO ссылок"
@@ -64,5 +64,3 @@ else
     echo -e "${COLOR[RED]}Транслит: ${COLOR[CLEAR]}${TEXT_TRANSLIT}"
 
 fi
-
-exit 0
