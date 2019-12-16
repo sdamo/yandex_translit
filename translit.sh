@@ -55,12 +55,10 @@ then
 
     echo "Информация: Яндекс транслит для генерации SEO ссылок"
     echo "Использование: translit <текст на кириллице>"
-
-else
-
-    TEXT_TRANSLIT=`echo ${TEXT_ORIGINAL} | sed -f translit.sed`
-
-    echo -e "${COLOR[GREEN]}Оригинальный текст: ${COLOR[CLEAR]}${TEXT_ORIGINAL}"
-    echo -e "${COLOR[RED]}Транслит: ${COLOR[CLEAR]}${TEXT_TRANSLIT}"
-
+    exit 0
 fi
+
+TEXT_TRANSLIT=`echo ${TEXT_ORIGINAL} | sed -f translit.sed`
+
+echo -e "${COLOR[GREEN]}Оригинальный текст: ${COLOR[CLEAR]}${TEXT_ORIGINAL}"
+echo -e "${COLOR[RED]}Транслит: ${COLOR[CLEAR]}${TEXT_TRANSLIT}"
